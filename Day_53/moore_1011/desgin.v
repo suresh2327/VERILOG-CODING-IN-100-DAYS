@@ -4,8 +4,13 @@ module moore_1011 (
     input din,
     output reg detected
 );
-    typedef enum reg [2:0] {S0, S1, S2, S3, S4} state_t;
-    state_t state;
+    reg [2:0] state;
+
+    parameter S0 = 3'b000,
+              S1 = 3'b001,
+              S2 = 3'b010,
+              S3 = 3'b011,
+              S4 = 3'b100;
 
     always @(posedge clk or posedge rst) begin
         if (rst) begin
@@ -25,4 +30,3 @@ module moore_1011 (
         end
     end
 endmodule
-        
